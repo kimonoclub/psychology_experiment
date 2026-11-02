@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心理学実験演習：第1回 「目」と「耳」の反応時間から学ぶ実験計画法と測定の信頼性（フォローアップ・学習テキスト）</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- 数式レンダリング用 MathJax 設定 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            chtml: {
+                matchFontHeight: false
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <style>
+        .highlight {
+            background: linear-gradient(transparent 60%, #fef08a 60%);
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        .text-justified {
+            text-align: justify;
+            text-justify: inter-character;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased line-height-relaxed">
+
+    <!-- 講義ヘッダー -->
+    <header class="bg-gradient-to-r from-teal-900 to-slate-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div>
+                <p id="subject_label" class="text-xs font-bold text-teal-300 uppercase tracking-wider">心理学実験演習</p>
+                <h1 id="lecture_title" class="text-sm sm:text-base font-bold text-white mt-0.5">第1回：「目」と「耳」の反応時間から学ぶ実験計画法と測定の信頼性</h1>
+            </div>
+            <a href="../index.html" class="text-xs bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap">演習ポータルへ戻る</a>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+        
+        <!-- タイトルエリア -->
+        <div class="text-center mb-16">
+            <p class="text-teal-600 font-bold tracking-widest text-xs sm:text-sm uppercase mb-3">第1回 フォローアップ・学習テキスト</p>
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                「目」と「耳」の反応時間から学ぶ<br class="hidden sm:inline">
+                <span class="text-xl sm:text-2xl text-slate-600 font-normal block mt-2">実験計画法と測定の信頼性</span>
+            </h1>
+            <div class="w-16 h-1 bg-teal-600 mx-auto rounded"></div>
+        </div>
+
+        <!-- 導入リード文 -->
+        <div class="mb-12 rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white">
+            <div class="p-6 sm:p-8 bg-gradient-to-br from-teal-50 to-slate-50 text-justified">
+                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    心理学実験演習の第1回では、落下する棒（リアクションバー）をできるだけ素早く掴むというシンプルな身体反応課題を通じて、心理学実験の基本となる「実験計画法」「交絡の統制」「物理データの時間変換」、そして「測定の信頼性」について体系的に学びました。実験で得られたデータを正しく分析し、科学的な結論を導き出すためには、単に数値を計算するだけでなく、その背後にある実験デザインの論理やデータのばらつきを吟味する姿勢が不可欠です。
+                </p>
+            </div>
+        </div>
+
+        <!-- 1. 実験課題 -->
+        <section class="mb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4 mb-6">
+                1. 実験課題：「目」と「耳」、どちらが速く反応できるか？
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-justified mb-4">
+                私たちが環境からの刺激を受け取ってから筋肉を動かすまでには、受容器（目や耳）での刺激受容、神経を通じた脳への情報伝達、大脳皮質での情報処理、そして運動神経を通じた筋肉への指令という一連のステップが存在します。一般に、聴覚系は視覚系に比べて脳の中枢へ至るシナプス結合の数が少なく、物理的な神経経路が短いため、処理速度が速いと理論上は予測されます。本実験では、この仮説を検証するためにリアクションバー落下課題を用いました。
+            </p>
+
+            <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm text-sm sm:text-base space-y-3 mb-6 text-justified">
+                <p class="font-bold text-teal-950 border-b border-slate-100 pb-1">■ 2つの実験条件</p>
+                <ul class="space-y-2 text-slate-700">
+                    <li><strong class="text-teal-900">・条件A（視覚刺激条件）：</strong> バーが落ちる動きを目で見て、無音の状態で素早くキャッチする。</li>
+                    <li><strong class="text-teal-900">・条件B（聴覚刺激条件）：</strong> 目を閉じる（または棒を見ない）状態で構え、「ピピッ！」という合図音を聞いた瞬間にキャッチする。</li>
+                </ul>
+                <p class="text-xs text-slate-500 pt-2 border-t border-slate-100">
+                    2人1組のペアを作り、1人が実験者、もう1人が被験者となって、バーの最下端に指を添えた状態（隙間約1〜2cm）から落下させ、掴んだ位置の目盛り（cm）を測定しました。
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. 実験計画の論理 -->
+        <section class="mb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4 mb-6">
+                2. 実験計画の論理：交絡要因の排除とデザインの選択
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-justified mb-4">
+                もし仮に、条件A（視覚条件）を運動部所属の学生ばかりのグループに実施し、条件B（聴覚条件）を文化部や運動習慣のない学生グループに実施したとします。その結果、「条件Aの方が反応時間が有意に短かった」としても、「視覚刺激の方が速く処理される」と結論づけることはできません。感覚モダリティの違いによるものか、もともとの反射能力の違いによるものかが区別できないからです。
+            </p>
+            <p class="text-slate-700 leading-relaxed text-justified mb-6">
+                このように、調べたい原因（独立変数）と結果（従属変数）の両方に影響を与え、真の因果関係を歪めてしまう第3の要因を<strong class="highlight">「交絡因子（Confounding factor）」</strong>と呼びます。実験心理学の核心は、この交絡を実験デザインの力でいかに排除するかにあります。
+            </p>
+
+            <h3 class="text-lg font-bold text-slate-800 mb-3">■ 被験者間計画と被験者内計画の比較</h3>
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full text-xs sm:text-sm border-collapse bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200">
+                    <thead class="bg-teal-900 text-white font-bold">
+                        <tr>
+                            <th class="p-3 text-left">実験計画</th>
+                            <th class="p-3 text-left">定義と具体例</th>
+                            <th class="p-3 text-left">メリット</th>
+                            <th class="p-3 text-left">デメリット・注意点</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                            <td class="p-3 font-bold bg-slate-50">被験者内計画<br><span class="text-xs text-slate-500 font-normal">（反復測定計画）</span></td>
+                            <td class="p-3">同一の参加者がすべての実験条件（視覚と聴覚の両方）を受ける計画。</td>
+                            <td class="p-3 text-teal-800 font-semibold">個人の基礎的な反射神経の差が相殺されるため統計的検出力が極めて高い。少人数でも効果を検出しやすい。</td>
+                            <td class="p-3">試行の繰り返しによる<strong class="text-rose-900">順序効果（練習効果や疲労、飽き）</strong>が持ち越されるため、順序統制が必須。</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold bg-slate-50">被験者間計画</td>
+                            <td class="p-3">条件ごとに別々の参加者を割り当てて比較する計画（視覚群12名、聴覚群別の12名）。</td>
+                            <td class="p-3">1人1条件のため順序効果が原理的に発生しない。ネタ明かしが必要な課題にも適用可能。</td>
+                            <td class="p-3">個人差がそのまま測定誤差（ノイズ）となるため検出力が低く、大人数のサンプルが必要。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-teal-50/60 border border-teal-100 p-5 rounded-xl text-sm sm:text-base leading-relaxed text-justified">
+                <p class="font-bold text-teal-950 mb-1">🔄 順序効果を防ぐカウンターバランス（Counterbalancing）</p>
+                <p class="text-slate-800">
+                    今回の演習では個人差によるノイズを抑えるため「被験者内計画」を採用しました。しかし、最初に視覚条件を6回行い、その後に聴覚条件を行うと、聴覚の好成績は単なる「慣れ（練習効果）」の可能性があります。この歪みを防ぐため、参加者の半数は「視覚 $\rightarrow$ 聴覚」、残りの半数は「聴覚 $\rightarrow$ 視覚」の順で行うというように、条件の実施順序を均等に相殺するカウンターバランスの手続きを実施しました。
+                </p>
+            </div>
+        </section>
+
+        <!-- 3. 物理法則によるデータ変換 -->
+        <section class="mb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4 mb-6">
+                3. 物理法則によるデータ変換：落下距離から反応時間へ
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-justified mb-4">
+                実験で得られる生データは、棒を掴んだ位置を示す「落下距離 $d$（cm）」です。しかし、私たちが知りたいのは神経伝達と情報処理の速さである「時間 $t$（ミリ秒：ms）」です。落下距離と時間の関係は一次関数（比例）ではなく、地球の重力加速度（$g \fallingdotseq 9.80665 \, \text{m/s}^2$）による二次関数として表されます。
+            </p>
+
+            <div class="bg-white border-2 border-teal-100 p-6 rounded-2xl shadow-sm text-center my-6 space-y-4">
+                <div>
+                    <p class="text-xs text-slate-500 font-mono mb-1">【自由落下の物理公式】</p>
+                    <div class="text-xl font-bold font-mono text-slate-900">$$d = \frac{1}{2}gt^2$$</div>
+                </div>
+                <div class="border-t border-slate-100 pt-3">
+                    <p class="text-xs text-teal-700 font-bold font-mono mb-1">【時間 $t$ を求める変換式】</p>
+                    <div class="text-2xl font-bold font-mono text-teal-950">$$t = \sqrt{\frac{2d}{g}}$$</div>
+                </div>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed text-justified">
+                落下距離が長くなるほど重力によって落下速度そのものが加速していくため、距離の目盛りをそのまま比較することはできません。平方根を適用して時間へと換算することで、初めて線形な心理尺度としての「反応時間」が得られます（例：落下距離20cmは約202ms、25cmは約226ms）。
+            </p>
+        </section>
+
+        <!-- 4. 代表値の吟味 -->
+        <section class="mb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4 mb-6">
+                4. 代表値の吟味：なぜ平均値ではなく「中央値」なのか？
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-justified mb-4">
+                各条件で得られた6試行の測定値から、その人の能力を代表する1つの数値を決定する際、本実験では「平均値（Mean）」ではなく<strong class="highlight">「中央値（Median）」</strong>を採用しました。
+            </p>
+
+            <div class="bg-white border border-slate-200 p-5 rounded-xl text-sm sm:text-base space-y-3 shadow-sm text-justified">
+                <p class="font-bold text-teal-950 border-b border-slate-100 pb-1">🛡️ 外れ値に対する頑健性（ロバストネス）</p>
+                <p class="text-slate-700">
+                    身体反応測定には、予期せぬフライング（合図の前に予測して動いてしまう）や集中力の途切れ、バーの取り落としといった「極端な外れ値」がしばしば混入します。
+                </p>
+                <p class="text-slate-700">
+                    平均値は全数値を足して試行数で割るため、たった1回の極端な外れ値（大失敗による400ms超えやフライングによる100ms）によって全体が大きく引きずられます。これに対し、数値を大きさ順に並べた中央の値を採用する中央値は、極端な値の影響をほとんど受けない「外れ値に頑健な代表値」としての性質を持っています。
+                </p>
+            </div>
+        </section>
+
+        <!-- 5. データの分布と統計的仮説検定の選択 -->
+        <section class="mb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4 mb-6">
+                5. データの分布と統計的仮説検定の選択
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-justified mb-4">
+                被験者内計画で得られた「視覚」と「聴覚」の反応時間に有意な差があるかを検証するためには、同一被験者内の差のスコア（例：聴覚反応時間 － 視覚反応時間）を算出し、検定を行います。標準的なパラメトリック検定である「対応のあるt検定」を適用するためには、その差のデータが正規分布に従っていることが前提となります。
+            </p>
+
+            <div class="space-y-3 text-xs sm:text-sm text-slate-700 my-6">
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <strong class="text-teal-950 font-bold block mb-1">1. ヒストグラムの描画</strong>
+                    データの度数分布を視覚化し、左右対称の釣り鐘型になっているかを確認する。
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <strong class="text-teal-950 font-bold block mb-1">2. 歪度（Skewness）の計算</strong>
+                    分布の左右の偏りを数値化する（Excel関数：<code>=SKEW()</code>）。歪度の絶対値が大きすぎる場合（一般に1.0や2.0以上）は、正規分布から大きく逸脱していると判断される。
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <strong class="text-teal-950 font-bold block mb-1">3. 検定手法の決定</strong>
+                    正規性が満たされている場合は「対応のあるt検定」を用い、分布が著しく歪んでいる場合やサンプルサイズが極めて小さい場合は、順位に基づくノンパラメトリック検定である<strong class="highlight">「ウィルコクソンの符号順位検定」</strong>を選択する。
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. 代表値の裏に隠された「測定の信頼性」 -->
+        <section class="mb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4 mb-6">
+                6. 代表値の裏に隠された「測定の信頼性」
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-justified mb-4">
+                「代表値（中央値）が全く同じであっても、そのデータは本当に同じと言えるのか？」という本質的な問いを考えてみましょう。
+            </p>
+
+            <div class="bg-slate-900 text-slate-100 p-6 rounded-2xl shadow-md text-xs sm:text-sm space-y-4 my-6 text-justified">
+                <p class="text-amber-300 font-bold border-b border-slate-700 pb-2">📊 2人の学生の反応時間データ（ms）の比較</p>
+                <div class="space-y-2">
+                    <p>・<strong>学生A：</strong> [210, 212, 210, 211, 209, 212] $\rightarrow$ 中央値：<strong>211 ms</strong></p>
+                    <p>・<strong>学生B：</strong> [140, 160, 211, 211, 350, 420] $\rightarrow$ 中央値：<strong>211 ms</strong></p>
+                </div>
+                <div class="border-t border-slate-800 pt-3 space-y-2 text-slate-300">
+                    <p>
+                        中央値だけを見れば両者とも「211 ms」で同一の処理能力に見えます。しかし、学生Aは全試行で極めて安定した数値を出し続けており、誤差が少なく内的・外的要因に左右されていない<strong class="text-white highlight">「測定の信頼性が極めて高い状態」</strong>です。
+                    </p>
+                    <p>
+                        一方、学生Bは前半に予測によるフライング（140ms）、後半に大幅な遅延（420ms）を起こして数値が激しく乱高下しており、中央値211msは単なる偶然の通過点にすぎず<strong class="text-rose-400">「測定の信頼性が著しく低い」</strong>状態です。
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed text-justified font-medium bg-teal-50/60 p-4 rounded-xl border border-teal-100">
+                要約統計量だけを盲信せず、生データのばらつき（標準偏差や分散、試行ごとの推移）を必ず確認し、その測定が真に安定した現象を捉えているかを見極める批判的な眼を持つことが大切です。
+            </p>
+        </section>
+
+        <hr class="border-slate-200 my-12">
+
+        <!-- 理解度確認テスト ＆ 出席・提出フォーム -->
+        <section class="bg-white border border-slate-200 rounded-2xl shadow-md p-6 sm:p-8">
+            <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center">
+                <span class="bg-teal-600 text-white text-xs px-2.5 py-1 rounded-md mr-3">課題提出</span>
+                💡 理解度確認テスト（全8問） ＆ 出席・提出フォーム
+            </h2>
+
+            <form id="lecture_form" onsubmit="submitForm(event)" class="space-y-6">
+                
+                <!-- 第1問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第1問】同一の実験参加者（被験者）が、視覚条件と聴覚条件の「両方」を経験する実験デザインの名称として、最も適切なものを一つ選びなさい。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q1" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) 独立二群比較計画</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q1" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) 被験者内計画（反復測定計画）</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q1" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 単一事例実験計画</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q1" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) 擬似実験デザイン</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第2問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第2問】被験者内計画を採用する最大のメリットとして、最も適切な記述はどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q2" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) 試行の繰り返しによる疲労や練習効果（順序効果）が原理的に一切発生しなくなる。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q2" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) 個人がもともと持っている運動能力や反射神経の個人差が相殺されるため、統計的検出力が高くなる。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q2" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 参加者一人あたりの拘束時間を最短に抑えることができる。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q2" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) トリックのネタ明かしを伴う課題であっても、何度でも同じ参加者に実施できる。</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第3問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第3問】被験者内計画において、試行を繰り返すことによる「慣れ（練習効果）」や「疲れ（疲労効果）」が特定の条件だけに偏ってしまうのを防ぐために行う手続きを何と呼びますか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q3" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) カウンターバランス</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q3" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) ピグマリオン効果</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q3" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 予言の自己成就</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q3" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) 探索的因子分析</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第4問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第4問】調べたい原因（独立変数）と結果（従属変数）の両方に影響を与え、真の因果関係を見かけ上歪めてしまう第3の要因を指す統計・実験用語はどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q4" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) 交互作用</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q4" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) 調整変数</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q4" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 交絡（交絡因子）</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q4" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) 媒介変数</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第5問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第5問】自由落下の物理公式（$d = \frac{1}{2}gt^2$）に基づき、落下距離 $d$ から反応時間 $t$ を求める正しい計算式はどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q5" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) $t = \frac{2d}{g}$</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q5" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) $t = \sqrt{\frac{2d}{g}}$</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q5" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) $t = \frac{gd^2}{2}$</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q5" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) $t = \sqrt{2gd}$</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第6問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第6問】リアクションバー課題の各条件における6回の試行データから個人の代表値を算出する際、「平均値」ではなく「中央値」を採用する理由として最も適切なものはどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q6" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) 中央値は計算が容易であり、Excelなどの表計算ソフトを使わずに暗算できるから。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q6" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) 平均値を用いると、必ず視覚条件の反応時間の方が遅くなってしまうから。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q6" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) フライングや取り落としといった偶発的な極端な外れ値に対して、中央値の方が頑健（影響を受けにくい）だから。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q6" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) 被験者内計画では、平均値を用いることが統計学の公理によって禁止されているから。</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第7問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第7問】同じ参加者から得られた「視覚条件」と「聴覚条件」の差のスコアが正規分布に従っていない（著しく歪んでいる）場合、適用すべきノンパラメトリック検定として最も適切なものはどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q7" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) 対応のないt検定（スチューデントのt検定）</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q7" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) カイ二乗適合度検定</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q7" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) ウィルコクソンの符号順位検定</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q7" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) 単回帰分析</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第8問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第8問】中央値が全く同じ「211 ms」である2人の学生（A：試行ごとの差がわずか数ミリ秒、B：140msから420msまで激しく乱高下）のデータを比較したとき、科学的な考察として最も適切なものはどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q8" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) 中央値が同一であるため、両者の情報処理能力および測定の信頼性は完全に同等であるとみなせる。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q8" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) 学生Bの方が試行ごとの変動が大きいため、脳の柔軟性が高く、優れた学習能力を持っていると判断できる。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q8" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 代表値だけでなく生データのばらつきを確認することが重要であり、学生Aは測定の信頼性が高いのに対し、学生Bは測定の信頼性に大きな問題がある。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q8" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) 心理学実験ではばらつきの大きいデータほど価値が高いため、学生Aのデータは外れ値として除外すべきである。</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 学籍番号 & 氏名入力 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="student_id" class="block text-sm font-bold text-slate-700 mb-2">学籍番号</label>
+                        <input type="text" id="student_id" required placeholder="例: 13（半角数字）" 
+                               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-slate-800">
+                    </div>
+                    <div>
+                        <label for="student_name" class="block text-sm font-bold text-slate-700 mb-2">氏 名</label>
+                        <input type="text" id="student_name" required placeholder="例: 四国 太郎" 
+                               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-slate-800">
+                    </div>
+                </div>
+
+                <!-- 質問・感想 -->
+                <div>
+                    <label for="student_feedback" class="block text-sm font-bold text-slate-700 mb-2">本日の演習内容（実験計画や測定の信頼性）に関する気づき・考察（任意）</label>
+                    <textarea id="student_feedback" rows="4" placeholder="今回の演習内容（被験者内計画、交絡統制、時間変換、中央値の採用、測定の信頼性など）について、気づいたことや考察を自由に入力してください。"
+                              class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-slate-800 text-sm sm:text-base"></textarea>
+                </div>
+
+                <!-- 送信ボタン -->
+                <div class="pt-2">
+                    <button type="submit" id="submit_btn" 
+                            class="w-full sm:w-auto bg-teal-700 hover:bg-teal-800 text-white font-bold px-8 py-3 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-98 cursor-pointer text-sm sm:text-base">
+                        すべての内容を理解し、芝崎先生へ送信する
+                    </button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-slate-900 text-slate-400 text-center py-8 text-xs border-t border-slate-800 mt-20">
+        <p>&copy; 2026 四国大学 心理学実験演習 講義ポータル All Rights Reserved.</p>
+    </footer>
+
+    <!-- Formspree 送信ロジック（全8問自動採点対応） -->
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            const studentId = document.getElementById("student_id").value.trim();
+            const studentName = document.getElementById("student_name").value.trim();
+            const feedback = document.getElementById("student_feedback").value.trim() || "特になし";
+            const btn = document.getElementById("submit_btn");
+
+            // 正解キー定義（全8問）
+            const correctAnswers = {
+                q1: "B",
+                q2: "B",
+                q3: "A",
+                q4: "C",
+                q5: "B",
+                q6: "C",
+                q7: "C",
+                q8: "C"
+            };
+
+            let scoreCount = 0;
+            const answers = {};
+
+            for (let i = 1; i <= 8; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const val = selected ? selected.value : "";
+                answers[`問${i}解答`] = val;
+                if (val === correctAnswers[`q${i}`]) {
+                    scoreCount++;
+                }
+            }
+
+            const scoreRate = Math.floor((scoreCount / 8) * 100) + "%";
+            const subjectLabel = document.getElementById("subject_label").innerText;
+            const lectureTitle = document.title;
+
+            const payloadData = {
+                "科目区分": subjectLabel,
+                "講義回": lectureTitle,
+                "学籍番号": studentId,
+                "氏名": studentName,
+                "クイズ得点率": scoreRate,
+                ...answers,
+                "学生からの質問・感想": feedback
+            };
+
+            const FORMSPREE_ID = "xjgqbqnl"; 
+
+            btn.disabled = true;
+            btn.innerText = "送信中...";
+
+            fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payloadData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert(`正常に記録されました（学籍番号: ${studentId}、正解数: ${scoreCount}/8問、得点率: ${scoreRate}）。第1回演習受講完了として受領しました。`);
+                    btn.innerText = "送信完了";
+                } else {
+                    throw new Error("APIエラー");
+                }
+            })
+            .catch(error => {
+                console.error("Submission Error:", error);
+                alert("送信に失敗しました。時間をおいて再度送信ボタンを押してください。");
+                btn.disabled = false;
+                btn.innerText = "すべての内容を理解し、芝崎先生へ送信する";
+            });
+        }
+    </script>
+</body>
+</html>
