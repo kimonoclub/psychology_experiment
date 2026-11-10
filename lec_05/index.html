@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ポータルの自動スキャナーが収集・クレンジングするタイトルタグ -->
+    <title>心理学実験演習：第5回 睡眠と認知機能から学ぶ心理学の2大アプローチ ―相関の罠、睡眠の科学、そして誠実なデータ分析計画（SAP）―（フォローアップ・学習テキスト）</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- 数式レンダリング用 MathJax 設定 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            chtml: {
+                matchFontHeight: false
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <style>
+        .highlight {
+            background: linear-gradient(transparent 60%, #fef08a 60%);
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        .text-justified {
+            text-align: justify;
+            text-justify: inter-character;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased line-height-relaxed">
+
+    <!-- 講義ヘッダー -->
+    <header class="bg-gradient-to-r from-teal-900 to-slate-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div>
+                <p id="subject_label" class="text-xs font-bold text-teal-300 uppercase tracking-wider">心理学実験演習</p>
+                <h1 id="lecture_title" class="text-sm sm:text-base font-bold text-white mt-0.5">第5回：睡眠と認知機能から学ぶ心理学の2大アプローチ ―相関の罠、睡眠の科学、そして誠実なデータ分析計画（SAP）―</h1>
+            </div>
+            <a href="../index.html" class="text-xs bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap">演習ポータルへ戻る</a>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+        
+        <!-- タイトルエリア -->
+        <div class="text-center mb-16">
+            <p class="text-teal-600 font-bold tracking-widest text-xs sm:text-sm uppercase mb-3">第5回 フォローアップ・学習テキスト</p>
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                睡眠と認知機能から学ぶ<br class="hidden sm:inline">心理学の2大アプローチ<br class="hidden sm:inline">
+                <span class="text-xl sm:text-2xl text-slate-600 font-normal block mt-2">―相関の罠、睡眠の科学、そして誠実なデータ分析計画（SAP）―</span>
+            </h1>
+            <div class="w-16 h-1 bg-teal-600 mx-auto rounded"></div>
+        </div>
+
+        <!-- 導入リード文 -->
+        <div class="mb-12 rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white">
+            <div class="p-6 sm:p-8 bg-gradient-to-br from-teal-50 to-slate-50 text-justified">
+                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    本テキストは、心理学実験演習第5回の講義内容を振り返り、私たちが日々体験している「睡眠」と「認知機能」を題材として、心理学における2大研究手法（実験的アプローチと個人差アプローチ）の違い、睡眠が記憶や身体機能に果たす生物学的役割、そして科学的な再現性と客観性を担保するための「事前登録」や「統計分析計画書（SAP）」の重要性を体系的に学ぶための教材です。
+                </p>
+            </div>
+        </div>
+
+        <!-- 1. 心理学の2大潮流：実験的アプローチと個人差アプローチ -->
+        <section class="mb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4 mb-6">
+                1. 心理学の2大潮流：実験的アプローチと個人差アプローチ
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-justified mb-4">
+                心理学が人間の心や行動を科学的に探究する際、研究の進め方には大きく分けて2つの強力なアプローチが存在します。第1回の演習で扱った「視覚刺激と聴覚刺激による反応時間の比較（リアクションバー課題）」のように、実験者が人為的に条件を操作し、その効果を厳密に比べる手法を<strong class="highlight">「実験的アプローチ（条件統制）」</strong>と呼びます。
+            </p>
+            <p class="text-slate-700 leading-relaxed text-justified mb-6">
+                これに対して、参加者が生まれつき持っている属性や、日々の生活習慣によって生じている状態（睡眠時間、日中の眠気、性格、不安傾向など）を測定し、そのばらつきと行動との関連を調べる手法を<strong class="highlight">「個人差アプローチ（指標による群分け・相関研究）」</strong>と呼びます。
+            </p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full text-xs sm:text-sm border-collapse bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200">
+                    <thead class="bg-teal-900 text-white font-bold">
+                        <tr>
+                            <th class="p-3 text-left">研究アプローチ</th>
+                            <th class="p-3 text-left">主たる関心・目的</th>
+                            <th class="p-3 text-left">研究の手法・特徴</th>
+                            <th class="p-3 text-left">強みと留意点</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                            <td class="p-3 font-bold bg-slate-50">実験的アプローチ<br><span class="text-xs text-slate-500 font-normal">（条件統制）</span></td>
+                            <td class="p-3">人間に共通する一般的・普遍的な認知・行動の法則の解明。</td>
+                            <td class="p-3">独立変数を人為的に操作。無作為割り付けや反復測定で条件以外のノイズを均一化。</td>
+                            <td class="p-3 text-teal-800 font-semibold">時間的順序が担保され、強い因果関係を主張できる。</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold bg-slate-50">個人差アプローチ<br><span class="text-xs text-slate-500 font-normal">（相関・群分け）</span></td>
+                            <td class="p-3">個人の多様性（人によってなぜ反応や行動が異なるのか）の解明。</td>
+                            <td class="p-3">質問紙得点や生活記録による群分け、連続数値間の相関分析。</td>
+                            <td class="p-3 text-slate-700">自然な生活習慣を捉える現実的妥当性があるが、因果関係は直接証明できない。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 2. 相関関係と因果関係の混同：「第3の変数（交絡因子）」の罠 -->
+        <section class="mb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4 mb-6">
+                2. 相関関係と因果関係の混同：「第3の変数（交絡因子）」の罠
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-justified mb-4">
+                個人差アプローチにおける典型的な落とし穴が、「相関関係と因果関係の混同」です。例えば、「日常の睡眠時間が短い人（夜更かししている人）ほど、リアクションバーを掴む反応時間が遅い（負の相関）」という測定結果が得られたとします。このデータを見て、直ちに「睡眠不足が原因となって、脳の反応速度が低下した」と断定することは科学的に誤りです。
+            </p>
+
+            <div class="bg-amber-50 border border-amber-200 p-5 rounded-xl text-sm sm:text-base space-y-3 mb-6 text-justified">
+                <p class="font-bold text-amber-950 border-b border-amber-200 pb-1">⚠️ 潜んでいる「第3の変数（交絡因子）」の例</p>
+                <p class="text-slate-800">
+                    両方の変数に同時に影響を及ぼしている背後の要因として、「実験へのモチベーションの低さ」や「日常的な生活の乱れ・体調不良」が潜んでいる可能性があります。
+                </p>
+                <p class="text-slate-800 text-xs sm:text-sm">
+                    モチベーションが低い学生は、「夜遅くまで遊んで睡眠時間が短くなる」と同時に、「翌日の実験に対しても集中せず、身が入らないために棒を掴むのが遅くなった」のかもしれません。
+                </p>
+                <div class="bg-white p-3 rounded-lg border border-amber-200 font-mono text-center text-xs sm:text-sm text-slate-800">
+                    【第3の交絡因子：モチベーション低下】<br>
+                    $\swarrow$ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $\searrow$<br>
+                    夜更かし（睡眠時間短縮） &emsp;&emsp; 実験への不集中（反応遅延）<br>
+                    <span class="text-rose-600 font-bold">※睡眠時間と反応時間の間は見かけの相関（擬似相関）にすぎない可能性</span>
+                </div>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed text-justified">
+                見かけ上はきれいな相関関係が存在していても、真の原因は背後にある交絡因子であり、2つの変数の間に直接的な因果の糸が存在しないケースを排除しきれないのが、個人差アプローチを扱う際の決定的な注意点となります。
+            </p>
+        </section>
+
+        <!-- 3. なぜ人は眠るのか：睡眠がもたらす心身の回復と記憶の定着 -->
+        <section class="mb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4 mb-6">
+                3. なぜ人は眠るのか：睡眠がもたらす心身の回復と記憶の定着
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-justified mb-4">
+                個人差による相関の限界を超えて、睡眠そのものが私たちの脳や身体にどのような生理的・認知的効果をもたらしているのかを実験的に検証した研究を見てみましょう。
+            </p>
+
+            <div class="space-y-4 my-6 text-sm sm:text-base">
+                <!-- レミニセンス現象 -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-justified">
+                    <p class="font-bold text-teal-950 mb-1">📖 単語ペア記憶実験と「レミニセンス現象」</p>
+                    <p class="text-slate-700 mb-2">
+                        無関連な単語ペア（例：「自転車―クジラ」46組）の学習直後のテスト1（平均37組正答）の後、十分な睡眠をとらせて翌朝にテスト2を実施したところ、正答数は「41組」へと有意に向上しました。
+                    </p>
+                    <p class="text-xs text-teal-900 font-bold bg-teal-50 p-2.5 rounded border border-teal-100">
+                        睡眠を挟むことで忘却ではなく記憶成績が向上するこの現象を「レミニセンス現象」と呼びます。睡眠は単なる活動の停止ではなく、脳が昼間に取り込んだ情報を整理・統合し、長期記憶として固定化するための積極的な作業時間です。
+                    </p>
+                </div>
+
+                <!-- ノンレム・レム睡眠 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-justified">
+                        <strong class="text-teal-950 font-bold block mb-1">■ ノンレム睡眠（特にステージ3・4の徐波睡眠）</strong>
+                        脳波の活動が低下する深い眠り。成長ホルモンの分泌が促され、傷ついた筋肉や身体組織、免疫系の修復・回復が精力的に行われる。
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-justified">
+                        <strong class="text-teal-950 font-bold block mb-1">■ レム睡眠（急速眼球運動睡眠）</strong>
+                        筋肉は脱力しているが脳は活発に活動。昼間に経験したエピソードや感情の記憶が再生され、既存の知識ネットワークと結びつく情報の整理・統合が行われる。
+                    </div>
+                </div>
+
+                <!-- アスリート睡眠介入研究 -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-justified">
+                    <p class="font-bold text-teal-950 mb-1">🎾 アスリートを対象とした睡眠介入研究</p>
+                    <p class="text-slate-700">
+                        普段通りの睡眠期間（1週間）と、毎晩9時間の睡眠を確保させた介入期間（1週間）を比較した実験では、9時間睡眠をとった期間において日中の主観的眠気が大幅に減少しただけでなく、<strong class="highlight">サーブの打球精度が約9%も向上</strong>することが実証されました。十分な睡眠は心身の回復のみならず、運動スキルの正確性や認知的判断力を飛躍させる必須条件です。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 科学の健全性を守る作法：pハッキングの排除と事前登録（SAP） -->
+        <section class="mb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4 mb-6">
+                4. 科学の健全性を守る作法：pハッキングの排除と事前登録（SAP）
+            </h2>
+            <p class="text-slate-700 leading-relaxed text-justified mb-4">
+                心理学が客観的な科学としての信頼性を保つためには、得られたデータをどのように分析し、どのように結論づけるかという倫理的基準が極めて重要となります。
+            </p>
+
+            <div class="bg-rose-50 border border-rose-200 p-5 rounded-xl text-sm sm:text-base space-y-2 mb-6 text-justified">
+                <p class="font-bold text-rose-950">🚫 戒められるべき不正：「pハッキング（p-hacking）」</p>
+                <p class="text-slate-800">
+                    研究者が「有意差（$p < .05$）を出したい」という誘惑に駆られ、データを集めた後に都合よく操作してしまう行為の総称です。
+                </p>
+                <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 pl-2">
+                    <li>有意になるまで外れ値の除外基準を何度も弄り回す。</li>
+                    <li>ピアソンの積率相関で有意にならなかったため、事後的にスピアマンの順位相関へ切り替える。</li>
+                    <li>結果を見てから「最初からこの結果を予測していた」と後付けで仮説を書き換える（HARKing）。</li>
+                </ul>
+            </div>
+
+            <div class="bg-white border-2 border-teal-100 p-6 rounded-2xl shadow-sm text-sm sm:text-base space-y-3 text-justified">
+                <p class="font-bold text-teal-950 border-b border-slate-100 pb-2">📋 統計分析計画書（SAP：Statistical Analysis Plan）と事前登録</p>
+                <p class="text-slate-800">
+                    不正や無意識のバイアスを完全に防ぐための標準作法が<strong class="highlight">「事前登録（Pre-registration）」</strong>です。データを収集する前（または開封前）に、仮説、外れ値の除外基準、正規性の有無に応じた統計手法を詳細に文書化して確定させます。
+                </p>
+                <p class="text-slate-700 bg-teal-50/60 p-3 rounded-lg border border-teal-100 text-xs sm:text-sm font-medium">
+                    あらかじめ分析のルールを固定し「鍵をかけておく」ことで、分析者の都合による恣意的なデータ操作を排除し、誠実で透明性の高い科学的結論を導くことができます。
+                </p>
+            </div>
+        </section>
+
+        <hr class="border-slate-200 my-12">
+
+        <!-- 理解度確認テスト ＆ 出席・提出フォーム -->
+        <section class="bg-white border border-slate-200 rounded-2xl shadow-md p-6 sm:p-8">
+            <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center">
+                <span class="bg-teal-600 text-white text-xs px-2.5 py-1 rounded-md mr-3">課題提出</span>
+                💡 理解度確認テスト（全8問） ＆ 出席・提出フォーム
+            </h2>
+
+            <form id="lecture_form" onsubmit="submitForm(event)" class="space-y-6">
+                
+                <!-- 第1問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第1問】心理学の研究手法における「実験的アプローチ（条件統制）」の特徴として、最も適切なものを一つ選びなさい。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q1" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) 参加者の生活習慣や性格などの多様性をそのまま観察し、変数の操作を行わずに相関関係のみを報告する。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q1" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) 実験者が条件を人為的に操作し、無作為割り付け等によって条件以外の要因を均一に統制することで、強い因果関係を主張できる。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q1" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 調査対象となる第3の交絡因子を完全に放置するため、因果関係の方向性を特定することが原理的に不可能である。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q1" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) 質問紙調査によって得られた得点の中央値を用いて、参加者を事後的に高群と低群に二分することを中心とする。</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第2問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第2問】「睡眠時間が短い学生ほど、反応時間が遅い」という相関関係が得られた際、それを直ちに「睡眠不足が反応速度を低下させた」と断定できない理由として、最も適切なものはどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q2" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) 人間の反応時間は物理法則によって完全に固定されており、生理的状態によって変動することはあり得ないから。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q2" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) 反応時間測定は視覚刺激しか測定できず、聴覚刺激のデータを同時に取得していないから。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q2" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 「実験へのモチベーションの低さ」など、両方の変数に影響を与える第3の交絡因子が存在する可能性を排除できないから。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q2" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) 個人差アプローチでは、平均値ではなく中央値を用いてデータを要約することが統計学的に禁じられているから。</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第3問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第3問】単語ペア記憶実験において、学習直後のテスト1よりも、十分な睡眠をとった後のテスト2の方が記憶成績が向上した現象の名称として、正しいものはどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q3" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) レミニセンス現象</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q3" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) ストループ効果</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q3" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 非注意性盲目</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q3" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) ピグマリオン効果</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第4問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第4問】睡眠の周期構造において、成長ホルモンの分泌が促され、傷ついた筋肉や心身の組織の修復が主に行われる段階として、最も適切なものはどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q4" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) レム睡眠（急速眼球運動睡眠）</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q4" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) ノンレム睡眠の深い段階（徐波睡眠：ステージ3・4）</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q4" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 入眠直後のごく浅いステージ1の睡眠のみ</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q4" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) 朝方に向けて急速に眼球が動いている覚醒直前の状態</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第5問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第5問】アスリートを対象に「毎晩9時間睡眠」を1週間確保させた睡眠介入研究において、観察された客観的なパフォーマンスの変化として正しいものはどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q5" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) サーブの打球精度が約9パーセント向上し、日中の眠気が減少した。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q5" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) 身体の反射速度が著しく遅延し、日中の筋力が一時的に低下した。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q5" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 睡眠時間が長すぎたため、脳の前頭前野の機能が麻痺してミスが倍増した。</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q5" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) 運動パフォーマンスには何ら変化が見られず、主観的な気分の改善のみにとどまった。</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第6問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第6問】統計分析計画（SAP）に基づき2つの連続変数の相関分析を行う際、双方の変数に正規性が確認された場合に適用すべきパラメトリックな統計手法はどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q6" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) カイ二乗適合度検定</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q6" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) スピアマンの順位相関係数</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q6" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) ピアソンの積率相関係数</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q6" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) ウィルコクソンの符号順位検定</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第7問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第7問】データ取得後に、$p < .05$（有意差）が出るまで外れ値の除外基準を都合よく変えたり、検定手法を恣意的に切り替えたりする不適切なデータ操作行為を何と呼びますか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q7" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) ピアソン・フィッシャー変換</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q7" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) カウンターバランス</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q7" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) 統計的検出力の補正</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q7" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) pハッキング（p-hacking）</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 第8問 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-150">
+                    <p class="font-bold text-slate-800 text-sm sm:text-base mb-3">
+                        【第8問】研究の透明性と再現性を確保するため、データを集めて開封する前に仮説や外れ値基準、統計手法を確定させて文書化しておく設計書の名称として、正しいものはどれですか。
+                    </p>
+                    <div class="space-y-3 text-sm sm:text-base">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q8" value="A" required class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">A) SAP（Statistical Analysis Plan / 統計分析計画書）</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q8" value="B" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">B) KSS（カロリンスカ眠気尺度評価書）</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q8" value="C" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">C) A-not-B スキーマ設計書</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="q8" value="D" class="w-4 h-4 mt-1 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">D) ACE スコア算出チェックシート</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 学籍番号 & 氏名入力 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="student_id" class="block text-sm font-bold text-slate-700 mb-2">学籍番号</label>
+                        <input type="text" id="student_id" required placeholder="例: 13（半角数字）" 
+                               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-slate-800">
+                    </div>
+                    <div>
+                        <label for="student_name" class="block text-sm font-bold text-slate-700 mb-2">氏 名</label>
+                        <input type="text" id="student_name" required placeholder="例: 四国 太郎" 
+                               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-slate-800">
+                    </div>
+                </div>
+
+                <!-- 質問・感想 -->
+                <div>
+                    <label for="student_feedback" class="block text-sm font-bold text-slate-700 mb-2">本日の演習内容（相関と因果の違い、睡眠の機能、研究倫理など）についての気づき・考察（任意）</label>
+                    <textarea id="student_feedback" rows="4" placeholder="今回の演習内容（実験的アプローチと個人差アプローチ、擬似相関、レミニセンス現象、pハッキング、SAPなど）について、学んだことや感想を自由に入力してください。"
+                              class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-slate-800 text-sm sm:text-base"></textarea>
+                </div>
+
+                <!-- 送信ボタン -->
+                <div class="pt-2">
+                    <button type="submit" id="submit_btn" 
+                            class="w-full sm:w-auto bg-teal-700 hover:bg-teal-800 text-white font-bold px-8 py-3 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-98 cursor-pointer text-sm sm:text-base">
+                        すべての内容を理解し、芝崎先生へ送信する
+                    </button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-slate-900 text-slate-400 text-center py-8 text-xs border-t border-slate-800 mt-20">
+        <p>&copy; 2026 四国大学 心理学実験演習 講義ポータル All Rights Reserved.</p>
+    </footer>
+
+    <!-- Formspree 送信ロジック（全8問自動採点対応） -->
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            const studentId = document.getElementById("student_id").value.trim();
+            const studentName = document.getElementById("student_name").value.trim();
+            const feedback = document.getElementById("student_feedback").value.trim() || "特になし";
+            const btn = document.getElementById("submit_btn");
+
+            // 正解キー定義（全8問）
+            const correctAnswers = {
+                q1: "B",
+                q2: "C",
+                q3: "A",
+                q4: "B",
+                q5: "A",
+                q6: "C",
+                q7: "D",
+                q8: "A"
+            };
+
+            let scoreCount = 0;
+            const answers = {};
+
+            for (let i = 1; i <= 8; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const val = selected ? selected.value : "";
+                answers[`問${i}解答`] = val;
+                if (val === correctAnswers[`q${i}`]) {
+                    scoreCount++;
+                }
+            }
+
+            const scoreRate = Math.floor((scoreCount / 8) * 100) + "%";
+            const subjectLabel = document.getElementById("subject_label").innerText;
+            const lectureTitle = document.title;
+
+            const payloadData = {
+                "科目区分": subjectLabel,
+                "講義回": lectureTitle,
+                "学籍番号": studentId,
+                "氏名": studentName,
+                "クイズ得点率": scoreRate,
+                ...answers,
+                "学生からの質問・感想": feedback
+            };
+
+            const FORMSPREE_ID = "xjgqbqnl"; 
+
+            btn.disabled = true;
+            btn.innerText = "送信中...";
+
+            fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payloadData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert(`正常に記録されました（学籍番号: ${studentId}、正解数: ${scoreCount}/8問、得点率: ${scoreRate}）。第5回演習受講完了として受領しました。`);
+                    btn.innerText = "送信完了";
+                } else {
+                    throw new Error("APIエラー");
+                }
+            })
+            .catch(error => {
+                console.error("Submission Error:", error);
+                alert("送信に失敗しました。時間をおいて再度送信ボタンを押してください。");
+                btn.disabled = false;
+                btn.innerText = "すべての内容を理解し、芝崎先生へ送信する";
+            });
+        }
+    </script>
+</body>
+</html>
